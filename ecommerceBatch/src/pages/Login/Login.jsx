@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Mail, Lock } from 'lucide-react';
 import TextInput from '../../components/ui/TextInput';
-import { API_ROOT } from '../../constant';
+import { API_ROOT } from '../../constants';
 
 
 const Login = () => {
