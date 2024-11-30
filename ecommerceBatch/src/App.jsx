@@ -1,14 +1,23 @@
 import { useState } from 'react'
 import './App.css'
+import Navbar from './components/ui/Navbar'
+import { Route, Routes } from 'react-router-dom'
+import Layout from './Layout'
+import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className="text-center p-10">
-        <h1 className="text-4xl font-bold text-blue-500">Hello, Tailwind CSS!</h1>
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
+      </Routes>
     </>
   )
 }
