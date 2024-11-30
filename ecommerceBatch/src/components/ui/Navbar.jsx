@@ -30,7 +30,7 @@ const Navbar = () => {
             <div className="hidden md:block ml-10">
               <div className="flex items-center space-x-4">
                 <Link 
-                  to="/" 
+                  to="/products" 
                   className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md"
                 >
                   Home

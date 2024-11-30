@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AtSign, User, Lock, KeyRound } from 'lucide-react';
-import { API_ROOT } from '../../constant';
+import { API_ROOT } from '../../constants';
 import TextInput from '../../components/ui/TextInput';
 
 const Register = () => {
