@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const { image, name, price} = product;
 
-  const redirectUrl = `/products/${product.product_id}`;
+  const redirectUrl = `/products/${product._id}`;
 
   const handleKeyDown = useCallback(
     (event) => {

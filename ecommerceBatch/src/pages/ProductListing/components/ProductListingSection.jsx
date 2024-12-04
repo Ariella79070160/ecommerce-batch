@@ -4,10 +4,18 @@ import { useProductListingContext } from './ProductListingContext';
 import ProductCard from '../../../components/ProductCard/ProductCard';
 import IconWrapper from '../../../components/ui/IconWrapper';
 import Button from '../../../components/ui/Button';
+import Pagination from '../../../components/ui/Pagination';
 
 const ProductListingSection = () => {
-  const { products, isProductsLoading, filterCount, resetFilters } =
-    useProductListingContext();
+  const { 
+    products, 
+    isProductsLoading, 
+    filterCount, 
+    resetFilters,
+    currentPage,
+    totalPages,
+    onPageChange,
+  } = useProductListingContext();
 
   if (isProductsLoading) {
     return (
@@ -44,12 +52,25 @@ const ProductListingSection = () => {
       </div>
     );
   }
-  console.log(products);
-  return products.map((product) => (
-    <div key={product._id} className={clsx('col-span-4 md:col-span-3')}>
-      <ProductCard product={product} />
+
+  return (
+    <div className="col-span-4 md:col-span-6 lg:col-span-9">
+      <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-6">
+        {products.map((product) => (
+          <div key={product._id} className={clsx('col-span-4 md:col-span-3')}>
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </div>
+      {totalPages > 1 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+        />
+      )}
     </div>
-  ));
+  );
 };
 
 export default ProductListingSection;
