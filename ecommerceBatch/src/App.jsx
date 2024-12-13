@@ -7,13 +7,14 @@ import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import ProductListingPage from './pages/ProductListing/ProductListingPage'
 import ProductDetailPage from './pages/ProductDetail/ProductDetailPage'
+import LikeContextProvider from './context/LikeContext'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Navbar />
+     <LikeContextProvider><Navbar /></LikeContextProvider>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route path="/login" element={<Login />} />

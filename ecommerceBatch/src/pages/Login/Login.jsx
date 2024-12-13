@@ -66,7 +66,7 @@ const Login = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('token', data.token);
-        navigate('/');
+        navigate('/products');
         window.location.reload();
       } else {
         const errorData = await response.json();
