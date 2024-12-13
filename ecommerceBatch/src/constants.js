@@ -12,12 +12,12 @@ export const BRAND_OPTIONS = {
       },
       {
         name: 'BrandB',
-        value: 'B',
+        value: 'BrandB',
         href: '/products?brand=BrandB',
       },
       {
         name: 'BrandC',
-        value: 'C',
+        value: 'BrandC',
         href: '/products?brand=BrandC',
       },
     ],

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import LikeButton from './LikeButton';
+
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,7 +17,7 @@ const Navbar = () => {
     // 清除 token 并更新状态
     localStorage.removeItem('token');
     setIsLoggedIn(false);
-    navigate('/');
+    navigate('/products');
   };
 
   return (
@@ -29,14 +31,14 @@ const Navbar = () => {
             </Link>
             <div className="hidden md:block ml-10">
               <div className="flex items-center space-x-4">
-                <Link 
-                  to="/products" 
+                <Link
+                  to="/products"
                   className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md"
                 >
                   Home
                 </Link>
-                <Link 
-                  to="/about" 
+                <Link
+                  to="/about"
                   className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md"
                 >
                   About
@@ -48,16 +50,19 @@ const Navbar = () => {
 
           {/* 右侧认证按钮 */}
           <div className="flex items-center space-x-4">
+            {isLoggedIn && (
+                <LikeButton disabled={!isLoggedIn} />
+            )}
             {!isLoggedIn ? (
               <>
-                <Link 
-                  to="/register" 
+                <Link
+                  to="/register"
                   className="text-gray-600 hover:text-gray-900 px-3 py-2"
                 >
                   Register
                 </Link>
-                <Link 
-                  to="/login" 
+                <Link
+                  to="/login"
                   className="bg-blue-500 text-white hover:bg-blue-600 px-4 py-2 rounded-md"
                 >
                   Login
